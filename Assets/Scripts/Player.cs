@@ -5,31 +5,37 @@ using UnityEngine.Rendering.Universal;
 
 public class Player : MonoBehaviour
 {
-    int score;
+    public static int score;
     [SerializeField]float health;
     [SerializeField] Goal[] goals;
     int targetGoal;
-    bool inLight;
+    public bool inLight = true;
     float radius = 1;
     [SerializeField]float damage = 1;
     float time = 1;
-    bool isAlive = true;
+    public bool isAlive = true;
 
     public void Update()
     {
         inLight = IsInLight();
         if (!inLight)
         {
-            DecreaseHealth(damage);
+            DecreaseHealth(damage * Time.deltaTime);
         }
-        else
+
+        if(inLight && health < 5)
         {
-            health += damage;
+            IncreaseHealth(damage * Time.deltaTime);
         }
 
         if(health <= 0)
         {
             isAlive = false;
+        }
+
+        if (!isAlive)
+        {
+            GetComponent<PlayerMovement>().enabled = false;
         }
 
         time -= Time.deltaTime;
@@ -61,6 +67,11 @@ public class Player : MonoBehaviour
         {
             health -= decrease;
         }
+    }
+
+    public void IncreaseHealth(float increase)
+    {
+        health += increase;
     }
 
     private bool IsInLight()

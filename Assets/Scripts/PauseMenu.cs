@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     [SerializeReference] public GameObject pauseMenu;
+    [SerializeField] public GameObject scoreText;
     public static bool isPaused = false;
     // Start is called before the first frame update
     void Start()
@@ -15,6 +16,7 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        scoreText.GetComponent<TMPro.TextMeshProUGUI>().text = "SCORE " + Player.score;
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             TogglePaused();

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7842765377016847553}
   - component: {fileID: 7842765377016847554}
+  - component: {fileID: 1153784639846151516}
   m_Layer: 0
   m_Name: Circle Light
   m_TagString: CircleLight
@@ -592,3 +593,17 @@ MonoBehaviour:
   - {x: 0.4157348, y: -0.27778515, z: 0}
   - {x: 0.46193978, y: -0.19134171, z: 0}
   - {x: 0.49039266, y: -0.09754512, z: 0}
+--- !u!114 &1153784639846151516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7842765377016847552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 658c2ac2c806ec64da4c835f984ada36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oscillationDimensions: {x: 0, y: 0}
+  oscillationFrequencies: {x: 0, y: 0}
