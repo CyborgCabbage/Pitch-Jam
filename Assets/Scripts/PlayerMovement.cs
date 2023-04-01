@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Camera cam;
 
     [SerializeField] PhysicsMaterial2D bounceMaterial;
+    [SerializeField] Player player;
 
     [SerializeField] float walkDrag;
     [SerializeField] float ballDrag;
@@ -40,33 +41,25 @@ public class PlayerMovement : MonoBehaviour
             //If they are running - turn into ball
             if (!isBall)
             {
-                //Make player bounce off bounds
-                rb.sharedMaterial = bounceMaterial;
-                rb.drag = ballDrag;
+                
+
                 //Get player direction to mouse direction for trajectory
                 Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
                 Vector2 diff = new Vector2(mousePos.x - transform.position.x, mousePos.y - transform.position.y);
                 diff.Normalize();
                 ballTrajectory = diff;
 
-                //Shoot player
-                rb.velocity = new Vector2(ballTrajectory.x * ballSpeed, ballTrajectory.y * ballSpeed);
-
-                isBall = true;
-            }
-            else
-            {
-                //Manual ball cancel, start running and dont bounce
-                //rb.sharedMaterial = null;
-                //isBall = false;
+                Roll(ballTrajectory);
             }
         }
 
         if (isBall && rb.velocity.magnitude < minBallSpeedForSwitch)
         {
+            player.SetGoals(false);
             rb.sharedMaterial = null;
             rb.drag = walkDrag;
             isBall = false;
+
         }
     }
 
@@ -87,9 +80,28 @@ public class PlayerMovement : MonoBehaviour
         }
        
     }
+    
+    public void Roll(Vector2 trajectory)
+    {
+        player.SetGoals(true);
+
+        //Make player bounce off bounds
+        rb.sharedMaterial = bounceMaterial;
+        rb.drag = ballDrag;
+
+        //Shoot player
+        rb.velocity = new Vector2(ballTrajectory.x * ballSpeed, ballTrajectory.y * ballSpeed);
+
+        isBall = true;
+    }
 
     public Vector3 GetVelocity()
     {
         return rb.velocity;
+    }
+
+    public bool GetIsRolling()
+    {
+        return isBall;
     }
 }

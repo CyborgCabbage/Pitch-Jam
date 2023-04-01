@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Goal : MonoBehaviour
 {
-    [SerializeField] bool isActive;
+    [SerializeField] bool isScorable;
+    [SerializeField] BoxCollider2D goalCollider;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Check if goal is scorable (cant score in same goal twice)
-        if (!isActive) { return; }
+        if (!isScorable) { return; }
 
         //Check if collision is player
         Player player = collision.GetComponent<Player>();
@@ -21,7 +22,25 @@ public class Goal : MonoBehaviour
 
     public void SwapActiveGoals()
     {
-        if (isActive) { isActive = false; }
-        else { isActive = true; }
+        if (isScorable) { isScorable = false; }
+        else { isScorable = true; }
+    }
+
+
+    public void SetOpen(bool isOpen)
+    {
+        if (isOpen)
+        {
+            goalCollider.isTrigger = true;
+        }
+        else
+        {
+            goalCollider.isTrigger = false;
+        } 
+    }
+
+    public bool GetIsScorable()
+    {
+        return isScorable;
     }
 }
