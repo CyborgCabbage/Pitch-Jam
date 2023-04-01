@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1820053636103014810
 MonoBehaviour:
@@ -44,6 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82ca6d33994db7e41b99ee82ded0c5e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnAreaSize: {x: 0, y: 0}
   playerScr: {fileID: 0}
   spawnables:
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  spawnableCount: 000000000000000000000000
+  spawnableCaps: 050000000500000005000000
