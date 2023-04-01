@@ -10,6 +10,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] PhysicsMaterial2D bounceMaterial;
     [SerializeField] Player player;
 
+    [SerializeField] float walkDrag;
+    [SerializeField] float ballDrag;
+    [SerializeField] float maxSpeed;
     [SerializeField] float moveSpeed;
     [SerializeField] float ballSpeed;
     [SerializeField] float minBallSpeedForSwitch;
@@ -53,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
             player.SetGoals(false);
             rb.sharedMaterial = null;
             rb.drag = walkDrag;
-	    isBall = false;
+	        isBall = false;
 
         }
     }
