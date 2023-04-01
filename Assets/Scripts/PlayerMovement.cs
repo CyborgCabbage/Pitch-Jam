@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] PhysicsMaterial2D bounceMaterial;
     [SerializeField] Player player;
+    [SerializeField] ParticleSystem rollParticles;
 
     [SerializeField] float walkDrag;
     [SerializeField] float ballDrag;
@@ -57,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
             rb.sharedMaterial = null;
             rb.drag = walkDrag;
 	        isBall = false;
-
+            rollParticles.Stop();
         }
     }
 
@@ -78,6 +79,7 @@ public class PlayerMovement : MonoBehaviour
     public void Roll(Vector2 trajectory, float force)
     {
         player.SetGoals(true);
+        rollParticles.Play();
 
         //Make player bounce off bounds
         rb.sharedMaterial = bounceMaterial;
