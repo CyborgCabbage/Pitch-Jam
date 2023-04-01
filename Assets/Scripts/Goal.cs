@@ -5,7 +5,11 @@ using UnityEngine;
 public class Goal : MonoBehaviour
 {
     [SerializeField] bool isScorable;
-    [SerializeField] BoxCollider2D goalCollider;
+    BoxCollider2D box;
+    private void Start()
+    {
+        box = GetComponent<BoxCollider2D>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -31,11 +35,11 @@ public class Goal : MonoBehaviour
     {
         if (isOpen)
         {
-            goalCollider.isTrigger = true;
+            box.isTrigger = true;
         }
         else
         {
-            goalCollider.isTrigger = false;
+            box.isTrigger = false;
         } 
     }
 
