@@ -59,4 +59,9 @@ public class PlayerMovement : MonoBehaviour
            // rb.velocity = new Vector2(ballTrajectory.x * ballSpeed * Time.fixedDeltaTime, ballTrajectory.y * ballSpeed * Time.fixedDeltaTime);
         }
     }
+
+    public Vector3 GetVelocity()
+    {
+        return rb.velocity;
+    }
 }
