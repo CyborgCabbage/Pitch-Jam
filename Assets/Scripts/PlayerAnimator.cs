@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PlayerAnimator : MonoBehaviour
 {
+    [SerializeField] AudioSource audioScr;
     [SerializeField] Animator ani;
     [SerializeField] PlayerMovement playerMov;
     [SerializeField] Rigidbody2D rigbod;
+    [SerializeField] List<AudioClip> sfx;
 
     string aniState = "Idle";
     float referenceScale;
@@ -36,10 +38,14 @@ public class PlayerAnimator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // sets animations depending on various states (moving, still, in-ball, transitioning from ball to normal mode)
+        // and plays sounds too
+
         if (playerMov.isBall)
         {
             if (!hasSetBallDir)
             {
+                audioScr.PlayOneShot(sfx[1]);
                 if (rigbod.velocity.x > 0)
                 {
                     transform.localScale = new Vector3(1, 1, 1) * referenceScale;
@@ -75,6 +81,7 @@ public class PlayerAnimator : MonoBehaviour
             {
                 if (ani.GetCurrentAnimatorStateInfo(0).IsName("Idle") || getAniTime() >= 1.1f)
                 {
+                    audioScr.PlayOneShot(sfx[0]);
                     setAnimation("Run", true);
                 }
             }
