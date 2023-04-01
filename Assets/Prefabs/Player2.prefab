@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 3751433371622799149}
   - component: {fileID: 6763597992136981028}
   - component: {fileID: 269222128268266042}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ Transform:
   m_Children:
   - {fileID: 4802817313056224849}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3751433371622799144
 MonoBehaviour:
@@ -158,7 +158,7 @@ MonoBehaviour:
   rb: {fileID: 3751433371622799145}
   cam: {fileID: 0}
   bounceMaterial: {fileID: 6200000, guid: f48e2ce801abab849b64232526e18087, type: 2}
-  player: {fileID: 0}
+  player: {fileID: 3751433371622799149}
   walkDrag: 8
   ballDrag: 1
   maxSpeed: 5
@@ -216,9 +216,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0358a153c1ca0d64ca2000f71a306dac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 15000
   goals:
   - {fileID: 0}
   - {fileID: 0}
+  damage: 1
 --- !u!114 &6763597992136981028
 MonoBehaviour:
   m_ObjectHideFlags: 0
