@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -20,7 +21,8 @@ public class PlayerMovement : MonoBehaviour
     Vector2 ballTrajectory;
     Vector2 playerInput;
     bool isBall = false;
-
+    bool inLight = true;
+    float radius = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -63,6 +65,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //Is in light
+        inLight = IsInLight();
         //Normal walk move
         if (!isBall)
         {
@@ -95,5 +99,18 @@ public class PlayerMovement : MonoBehaviour
     public bool GetIsRolling()
     {
         return isBall;
+    }
+    
+    private bool IsInLight() {
+        GameObject[] objects = GameObject.FindGameObjectsWithTag("CircleLight");
+        foreach (GameObject o in objects) {
+            Light2D light2d = o.GetComponent<Light2D>();
+            float distance = (transform.position - o.transform.position).magnitude;
+            float strength = light2d.shapeLightFalloffSize + radius;
+            if (distance < strength) {
+                return true;
+            }
+        }
+        return false;
     }
 }
