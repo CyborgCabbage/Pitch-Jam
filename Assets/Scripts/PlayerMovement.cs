@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Camera cam;
 
     [SerializeField] PhysicsMaterial2D bounceMaterial;
+    [SerializeField] Player player;
 
     [SerializeField] float moveSpeed;
     [SerializeField] float ballSpeed;
@@ -36,8 +37,6 @@ public class PlayerMovement : MonoBehaviour
             //If they are running - turn into ball
             if (!isBall)
             {
-                //Make player bounce off bounds
-                rb.sharedMaterial = bounceMaterial;
 
                 //Get player direction to mouse direction for trajectory
                 Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
@@ -45,22 +44,17 @@ public class PlayerMovement : MonoBehaviour
                 diff.Normalize();
                 ballTrajectory = diff;
 
-                //Shoot player
-                rb.velocity = new Vector2(ballTrajectory.x * ballSpeed, ballTrajectory.y * ballSpeed);
-
-                isBall = true;
-            }
-            else
-            {
-                //Manual ball cancel, start running and dont bounce
-                rb.sharedMaterial = null;
-                isBall = false;
+                Roll(ballTrajectory);
             }
         }
 
         if (isBall && rb.velocity.magnitude < minBallSpeedForSwitch)
         {
-            isBall = false;
+            player.SetGoals(false);
+            rb.sharedMaterial = null;
+            rb.drag = walkDrag;
+	    isBall = false;
+
         }
     }
 
@@ -69,13 +63,34 @@ public class PlayerMovement : MonoBehaviour
         //Normal walk move
         if (!isBall)
         {
-            rb.velocity = new Vector2(playerInput.x * moveSpeed * Time.fixedDeltaTime, playerInput.y * moveSpeed * Time.fixedDeltaTime);
+           rb.velocity += new Vector2(playerInput.x * moveSpeed * Time.fixedDeltaTime, playerInput.y * moveSpeed * Time.fixedDeltaTime);
+
+           rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -maxSpeed, maxSpeed), Mathf.Clamp(rb.velocity.y, -maxSpeed, maxSpeed));
         }
       
+    }
+    
+    public void Roll(Vector2 trajectory)
+    {
+        player.SetGoals(true);
+
+        //Make player bounce off bounds
+        rb.sharedMaterial = bounceMaterial;
+        rb.drag = ballDrag;
+
+        //Shoot player
+        rb.velocity = new Vector2(ballTrajectory.x * ballSpeed, ballTrajectory.y * ballSpeed);
+
+        isBall = true;
     }
 
     public Vector3 GetVelocity()
     {
         return rb.velocity;
+    }
+
+    public bool GetIsRolling()
+    {
+        return isBall;
     }
 }
