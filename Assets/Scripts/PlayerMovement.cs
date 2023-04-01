@@ -70,7 +70,6 @@ public class PlayerMovement : MonoBehaviour
     {
         //Is in light
         inLight = IsInLight();
-        Debug.Log("In Light: "+inLight);
         //Normal walk move
         if (!isBall)
         {
