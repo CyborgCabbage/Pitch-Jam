@@ -26,10 +26,10 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (oldScore != playerScr.score)
+        if (oldScore != Player.score)
         {
             spawnEnemy(0);
-            oldScore = playerScr.score;
+            oldScore = Player.score;
         }
     }
 }
