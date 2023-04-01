@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Rendering.Universal;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] Rigidbody2D rb;
@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
     Vector2 ballTrajectory;
     Vector2 playerInput;
     bool isBall = false;
+    bool inLight = true;
+    float radius = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -46,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
                 ballTrajectory = diff;
 
                 //Shoot player
-                rb.velocity = new Vector2(ballTrajectory.x * ballSpeed, ballTrajectory.y * ballSpeed);
+                rb.velocity = ballTrajectory * ballSpeed;
 
                 isBall = true;
             }
@@ -66,12 +68,28 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //Is in light
+        inLight = IsInLight();
+        Debug.Log("In Light: "+inLight);
         //Normal walk move
         if (!isBall)
         {
-            rb.velocity = new Vector2(playerInput.x * moveSpeed * Time.fixedDeltaTime, playerInput.y * moveSpeed * Time.fixedDeltaTime);
+            rb.velocity = playerInput.normalized*moveSpeed;
         }
       
+    }
+
+    private bool IsInLight() {
+        GameObject[] objects = GameObject.FindGameObjectsWithTag("CircleLight");
+        foreach (GameObject o in objects) {
+            Light2D light2d = o.GetComponent<Light2D>();
+            float distance = (transform.position - o.transform.position).magnitude;
+            float strength = light2d.shapeLightFalloffSize + radius;
+            if (distance < strength) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public Vector3 GetVelocity()
