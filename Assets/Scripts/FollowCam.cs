@@ -8,6 +8,7 @@ public class FollowCam : MonoBehaviour
     [SerializeField] PlayerMovement player;
     [SerializeField] float distanceFromPlayerMultiplier;
     [SerializeField] bool focusPlayer = false;
+    [SerializeField] bool cameraShake = true;
 
     private void FixedUpdate()
     {
@@ -22,6 +23,8 @@ public class FollowCam : MonoBehaviour
 
     public IEnumerator Shake(float duration, float magnitude)
     {
+        if (!cameraShake) { yield break; }
+
         float elapsed = 0f;
 
         while (elapsed < duration)
