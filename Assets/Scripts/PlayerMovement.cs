@@ -19,8 +19,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float minBallSpeedForSwitch;
 
     Vector2 ballTrajectory;
-    Vector2 playerInput;
-    bool isBall = false;
+    public Vector2 playerInput;
+    public bool isBall = false;
     bool inLight = true;
     float radius = 1;
     // Start is called before the first frame update
