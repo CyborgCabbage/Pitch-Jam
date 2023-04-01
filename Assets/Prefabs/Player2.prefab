@@ -231,9 +231,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d4dede8f606b7049a100a7ffebd7728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioScr: {fileID: 269222128268266042}
   ani: {fileID: 3313793605637023753}
   playerMov: {fileID: 3751433371622799144}
   rigbod: {fileID: 3751433371622799145}
+  sfx:
+  - {fileID: 8300000, guid: bbd97df43591786479e79895506e6f8b, type: 3}
+  - {fileID: 8300000, guid: 60921bd10eb0dff4d9580e6a98a9ef47, type: 3}
   hasSetBallDir: 0
 --- !u!82 &269222128268266042
 AudioSource:
@@ -245,11 +249,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: bbd97df43591786479e79895506e6f8b, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
