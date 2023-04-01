@@ -19,6 +19,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float ballSpeed;
     [SerializeField] float minBallSpeedForSwitch;
 
+    [SerializeField] float camShakeDuration;
+    [SerializeField] float camShakeMagnitude;
+
     Vector2 ballTrajectory;
     public Vector2 playerInput;
     public bool isBall = false;
@@ -82,6 +85,7 @@ public class PlayerMovement : MonoBehaviour
     {
         player.SetGoals(true);
         rollParticles.Play();
+        StartCoroutine(cam.GetComponent<FollowCam>().Shake(camShakeDuration, force * 0.008f));
 
         //Make player bounce off bounds
         rb.sharedMaterial = bounceMaterial;
