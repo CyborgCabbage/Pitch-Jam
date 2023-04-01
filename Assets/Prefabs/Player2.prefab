@@ -31,8 +31,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3751433371622799147}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.9670266, y: 1.1245431, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -105,12 +105,15 @@ MonoBehaviour:
   rb: {fileID: 3751433371622799145}
   cam: {fileID: 0}
   bounceMaterial: {fileID: 6200000, guid: f48e2ce801abab849b64232526e18087, type: 2}
+  player: {fileID: 0}
   walkDrag: 8
   ballDrag: 1
   maxSpeed: 5
   moveSpeed: 280
   ballSpeed: 20
   minBallSpeedForSwitch: 5
+  playerInput: {x: 0, y: 0}
+  isBall: 0
 --- !u!50 &3751433371622799145
 Rigidbody2D:
   serializedVersion: 4
@@ -198,3 +201,4 @@ MonoBehaviour:
   ani: {fileID: 6436796962392714927}
   playerMov: {fileID: 3751433371622799144}
   rigbod: {fileID: 3751433371622799145}
+  hasSetBallDir: 0
