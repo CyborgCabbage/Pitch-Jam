@@ -5,7 +5,7 @@ using UnityEngine.Rendering.Universal;
 
 public class Player : MonoBehaviour
 {
-    public int score;
+    public static int score;
     [SerializeField]float health;
     [SerializeField] Goal[] goals;
     int targetGoal;
