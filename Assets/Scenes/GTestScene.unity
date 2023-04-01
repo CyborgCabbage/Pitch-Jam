@@ -7666,6 +7666,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 952657485}
     - target: {fileID: 1820053636103014810, guid: 4dceae35d0146c3409b50b7091871930, type: 3}
+      propertyPath: spawnAreaSize.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1820053636103014810, guid: 4dceae35d0146c3409b50b7091871930, type: 3}
+      propertyPath: spawnAreaSize.y
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1820053636103014810, guid: 4dceae35d0146c3409b50b7091871930, type: 3}
       propertyPath: spawnables.Array.data[0]
       value: 
       objectReference: {fileID: 2019362837}
