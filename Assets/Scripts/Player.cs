@@ -9,6 +9,17 @@ public class Player : MonoBehaviour
     [SerializeField] Goal[] goals;
     int targetGoal;
 
+    public void SetGoals(bool open)
+    {
+        for (int i = 0; i < goals.Length; i++)
+        {
+            if (goals[i].GetIsScorable())
+            {
+                goals[i].SetOpen(open);
+            }
+        }
+    }
+
     public void IncrementGoals()
     {
         score++;

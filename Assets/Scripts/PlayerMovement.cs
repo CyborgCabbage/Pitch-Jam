@@ -2,13 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Camera cam;
 
     [SerializeField] PhysicsMaterial2D bounceMaterial;
+    [SerializeField] Player player;
 
+    [SerializeField] float walkDrag;
+    [SerializeField] float ballDrag;
+    [SerializeField] float maxSpeed;
     [SerializeField] float moveSpeed;
     [SerializeField] float ballSpeed;
     [SerializeField] float minBallSpeedForSwitch;
@@ -18,7 +23,6 @@ public class PlayerMovement : MonoBehaviour
     bool isBall = false;
     bool inLight = true;
     float radius = 1;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -38,8 +42,6 @@ public class PlayerMovement : MonoBehaviour
             //If they are running - turn into ball
             if (!isBall)
             {
-                //Make player bounce off bounds
-                rb.sharedMaterial = bounceMaterial;
 
                 //Get player direction to mouse direction for trajectory
                 Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
@@ -47,22 +49,17 @@ public class PlayerMovement : MonoBehaviour
                 diff.Normalize();
                 ballTrajectory = diff;
 
-                //Shoot player
-                rb.velocity = ballTrajectory * ballSpeed;
-
-                isBall = true;
-            }
-            else
-            {
-                //Manual ball cancel, start running and dont bounce
-                rb.sharedMaterial = null;
-                isBall = false;
+                Roll(ballTrajectory);
             }
         }
 
         if (isBall && rb.velocity.magnitude < minBallSpeedForSwitch)
         {
-            isBall = false;
+            player.SetGoals(false);
+            rb.sharedMaterial = null;
+            rb.drag = walkDrag;
+	        isBall = false;
+
         }
     }
 
@@ -73,11 +70,37 @@ public class PlayerMovement : MonoBehaviour
         //Normal walk move
         if (!isBall)
         {
-            rb.velocity = playerInput.normalized*moveSpeed;
+           rb.velocity += new Vector2(playerInput.x * moveSpeed * Time.fixedDeltaTime, playerInput.y * moveSpeed * Time.fixedDeltaTime);
+
+           rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -maxSpeed, maxSpeed), Mathf.Clamp(rb.velocity.y, -maxSpeed, maxSpeed));
         }
       
     }
+    
+    public void Roll(Vector2 trajectory)
+    {
+        player.SetGoals(true);
 
+        //Make player bounce off bounds
+        rb.sharedMaterial = bounceMaterial;
+        rb.drag = ballDrag;
+
+        //Shoot player
+        rb.velocity = new Vector2(ballTrajectory.x * ballSpeed, ballTrajectory.y * ballSpeed);
+
+        isBall = true;
+    }
+
+    public Vector3 GetVelocity()
+    {
+        return rb.velocity;
+    }
+
+    public bool GetIsRolling()
+    {
+        return isBall;
+    }
+    
     private bool IsInLight() {
         GameObject[] objects = GameObject.FindGameObjectsWithTag("CircleLight");
         foreach (GameObject o in objects) {
@@ -89,10 +112,5 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         return false;
-    }
-
-    public Vector3 GetVelocity()
-    {
-        return rb.velocity;
     }
 }
