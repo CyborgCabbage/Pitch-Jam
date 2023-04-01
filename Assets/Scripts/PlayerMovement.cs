@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
                 diff.Normalize();
                 ballTrajectory = diff;
 
-                Roll(ballTrajectory);
+                Roll(ballTrajectory, ballSpeed);
             }
         }
 
@@ -77,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
       
     }
     
-    public void Roll(Vector2 trajectory)
+    public void Roll(Vector2 trajectory, float force)
     {
         player.SetGoals(true);
 
@@ -86,7 +86,7 @@ public class PlayerMovement : MonoBehaviour
         rb.drag = ballDrag;
 
         //Shoot player
-        rb.velocity = new Vector2(ballTrajectory.x * ballSpeed, ballTrajectory.y * ballSpeed);
+        rb.velocity = new Vector2(trajectory.x * force, trajectory.y * force);
 
         isBall = true;
     }
