@@ -9,9 +9,13 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] PhysicsMaterial2D bounceMaterial;
 
+    [SerializeField] float walkDrag;
+    [SerializeField] float ballDrag;
+    [SerializeField] float maxSpeed;
     [SerializeField] float moveSpeed;
     [SerializeField] float ballSpeed;
     [SerializeField] float minBallSpeedForSwitch;
+   
 
     Vector2 ballTrajectory;
     Vector2 playerInput;
@@ -38,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 //Make player bounce off bounds
                 rb.sharedMaterial = bounceMaterial;
-
+                rb.drag = ballDrag;
                 //Get player direction to mouse direction for trajectory
                 Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
                 Vector2 diff = new Vector2(mousePos.x - transform.position.x, mousePos.y - transform.position.y);
@@ -53,13 +57,15 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 //Manual ball cancel, start running and dont bounce
-                rb.sharedMaterial = null;
-                isBall = false;
+                //rb.sharedMaterial = null;
+                //isBall = false;
             }
         }
 
         if (isBall && rb.velocity.magnitude < minBallSpeedForSwitch)
         {
+            rb.sharedMaterial = null;
+            rb.drag = walkDrag;
             isBall = false;
         }
     }
@@ -67,11 +73,19 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         //Normal walk move
-        if (!isBall)
+        if (isBall)
         {
-            rb.velocity = new Vector2(playerInput.x * moveSpeed * Time.fixedDeltaTime, playerInput.y * moveSpeed * Time.fixedDeltaTime);
+           // rb.velocity += new Vector2(playerInput.x * moveSpeed * Time.fixedDeltaTime, playerInput.y * moveSpeed * Time.fixedDeltaTime);
+
+           // rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -maxBallSpeed, maxBallSpeed), Mathf.Clamp(rb.velocity.y, -maxBallSpeed, maxBallSpeed));
         }
-      
+        else
+        {
+            rb.velocity += new Vector2(playerInput.x * moveSpeed * Time.fixedDeltaTime, playerInput.y * moveSpeed * Time.fixedDeltaTime);
+
+            rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -maxSpeed, maxSpeed), Mathf.Clamp(rb.velocity.y, -maxSpeed, maxSpeed));
+        }
+       
     }
 
     public Vector3 GetVelocity()
