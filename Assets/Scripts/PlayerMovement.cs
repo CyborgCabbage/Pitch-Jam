@@ -96,4 +96,17 @@ public class PlayerMovement : MonoBehaviour
     {
         return isBall;
     }
+    
+    private bool IsInLight() {
+        GameObject[] objects = GameObject.FindGameObjectsWithTag("CircleLight");
+        foreach (GameObject o in objects) {
+            Light2D light2d = o.GetComponent<Light2D>();
+            float distance = (transform.position - o.transform.position).magnitude;
+            float strength = light2d.shapeLightFalloffSize + radius;
+            if (distance < strength) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
