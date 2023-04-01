@@ -8,7 +8,6 @@ public class PlayerAnimator : MonoBehaviour
     [SerializeField] PlayerMovement playerMov;
     [SerializeField] Rigidbody2D rigbod;
 
-    Vector2 playerInput;
     string aniState = "Idle";
     float referenceScale;
     [SerializeField]  bool hasSetBallDir = false;
@@ -29,14 +28,15 @@ public class PlayerAnimator : MonoBehaviour
         }
     }
 
+    float getAniTime()
+    {
+        return ani.GetCurrentAnimatorStateInfo(0).normalizedTime;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        playerInput.x = Input.GetAxisRaw("Horizontal");
-        playerInput.y = Input.GetAxisRaw("Vertical");
-
-
-        if (true)
+        if (playerMov.isBall)
         {
             if (!hasSetBallDir)
             {
@@ -56,26 +56,31 @@ public class PlayerAnimator : MonoBehaviour
         }
         else
         {
-            if (playerInput.x > 0)
+            if (playerMov.playerInput.x > 0)
             {
                 transform.localScale = new Vector3(1, 1, 1) * referenceScale;
             }
-            else if (playerInput.x < 0)
+            else if (playerMov.playerInput.x < 0)
             {
                 transform.localScale = new Vector3(-1, 1, 1) * referenceScale;
             }
             hasSetBallDir = false;
 
-            if (playerInput.magnitude > 0)
+
+            if (aniState == "Roll" || (aniState == "OutOfBall" && getAniTime() < 0.85f))
             {
-                if (ani.GetCurrentAnimatorStateInfo(0).IsName("Idle") || ani.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.1f)
+                setAnimation("OutOfBall", false);
+            }
+            else if (playerMov.playerInput.magnitude > 0)
+            {
+                if (ani.GetCurrentAnimatorStateInfo(0).IsName("Idle") || getAniTime() >= 1.1f)
                 {
                     setAnimation("Run", true);
                 }
             }
             else
             {
-                if (!ani.GetCurrentAnimatorStateInfo(0).IsName("Run") || ani.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.1f)
+                if (!ani.GetCurrentAnimatorStateInfo(0).IsName("Run") || getAniTime() >= 1.1f)
                 {
                     setAnimation("Idle", false);
                 }

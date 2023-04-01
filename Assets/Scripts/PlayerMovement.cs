@@ -18,8 +18,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float minBallSpeedForSwitch;
 
     Vector2 ballTrajectory;
-    Vector2 playerInput;
-    bool isBall = false;
+    public Vector2 playerInput;
+    public bool isBall = false;
 
     // Start is called before the first frame update
     void Start()
