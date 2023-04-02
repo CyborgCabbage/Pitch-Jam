@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1820053636103014811}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5878059, y: 0.9343958, z: 0.20002167}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44,8 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82ca6d33994db7e41b99ee82ded0c5e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnAreaSize: {x: 0, y: 0}
-  playerScr: {fileID: 0}
+  spawnAreaSize: {x: 18, y: 12}
   enemy: {fileID: 2671669261358282928, guid: 3a22c7910af57d340abe043c352b797c, type: 3}
   enemyCap: 8
   spawnEveryXPoints: 2
