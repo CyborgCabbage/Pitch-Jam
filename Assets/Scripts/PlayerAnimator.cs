@@ -96,6 +96,7 @@ public class PlayerAnimator : MonoBehaviour
                     setAnimation("Idle", false);
                 }
             }
+            ani.speed = 1;
         }
     }
 }
