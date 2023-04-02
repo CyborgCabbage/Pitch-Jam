@@ -7,9 +7,14 @@ public class Goal : MonoBehaviour
     [SerializeField] bool isScorable;
     BoxCollider2D box;
     [SerializeField] ParticleSystem scoreParticles;
+    [SerializeField] Sprite activeGoalSprite;
+    [SerializeField] Sprite inactiveGoalSprite;
+    [SerializeField] SpriteRenderer spriteRenderer;
+
     private void Start()
     {
         box = GetComponent<BoxCollider2D>();
+        SetGoalSprite();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -27,10 +32,24 @@ public class Goal : MonoBehaviour
 
     }
 
+    private void SetGoalSprite()
+    {
+        if (isScorable)
+        {
+            spriteRenderer.sprite = activeGoalSprite;
+        }
+        else
+        {
+            spriteRenderer.sprite = inactiveGoalSprite;
+        }
+    }
+
     public void SwapActiveGoals()
     {
         if (isScorable) { isScorable = false; }
         else { isScorable = true; }
+
+        SetGoalSprite();
     }
 
 
