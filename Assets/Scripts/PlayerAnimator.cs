@@ -17,6 +17,10 @@ public class PlayerAnimator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (PlayerPrefs.HasKey("sfxVolume"))
+        {
+            audioScr.volume = PlayerPrefs.GetFloat("sfxVolume");
+        }
         referenceScale = transform.localScale.x;
     }
 
