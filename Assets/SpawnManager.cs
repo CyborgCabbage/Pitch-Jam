@@ -5,10 +5,10 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     [SerializeField] Vector2 spawnAreaSize;
-    [SerializeField] Player playerScr;
-    [SerializeField] List<GameObject> spawnables;
-    [SerializeField] List<int> spawnableCount;
-    [SerializeField] List<int> spawnableCaps;
+    [SerializeField] GameObject enemy;
+    int enemyCount;
+    [SerializeField] int enemyCap;
+    [SerializeField] int spawnEveryXPoints;
 
     int oldScore = 0;
 
@@ -18,13 +18,12 @@ public class SpawnManager : MonoBehaviour
 
     }
 
-    void spawnEnemy(int id)
+    void spawnEnemy()
     {
-        print("spawn");
-        if (spawnableCount[id] < spawnableCaps[id])
+        if (enemyCount < enemyCap)
         {
-            spawnableCount[id]++;
-            GameObject gm = Instantiate(spawnables[id]);
+            enemyCount++;
+            GameObject gm = Instantiate(enemy);
             gm.transform.position = new Vector2(Random.Range(-spawnAreaSize.x, spawnAreaSize.x), Random.Range(-spawnAreaSize.y, spawnAreaSize.y)) / 2;
         }
     }
@@ -32,9 +31,9 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (oldScore != Player.score)
+        if (Player.score > oldScore + spawnEveryXPoints - 1)
         {
-            spawnEnemy(0);
+            spawnEnemy();
             oldScore = Player.score;
         }
     }
