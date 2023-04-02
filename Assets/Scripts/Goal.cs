@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class Goal : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class Goal : MonoBehaviour
     [SerializeField] Sprite activeGoalSprite;
     [SerializeField] Sprite inactiveGoalSprite;
     [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] Light2D goalLight;
+    [SerializeField] float activeGoalLighting;
+    [SerializeField] float inactiveGoalLighting;
 
     private void Start()
     {
@@ -37,10 +41,12 @@ public class Goal : MonoBehaviour
         if (isScorable)
         {
             spriteRenderer.sprite = activeGoalSprite;
+            goalLight.intensity = activeGoalLighting;
         }
         else
         {
             spriteRenderer.sprite = inactiveGoalSprite;
+            goalLight.intensity = inactiveGoalLighting;
         }
     }
 
