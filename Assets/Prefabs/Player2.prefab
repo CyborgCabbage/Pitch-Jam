@@ -121,6 +121,7 @@ GameObject:
   - component: {fileID: 6763597992136981028}
   - component: {fileID: 269222128268266042}
   - component: {fileID: 4351212979010233222}
+  - component: {fileID: 2685484727812854867}
   m_Layer: 6
   m_Name: Player2
   m_TagString: Untagged
@@ -168,8 +169,11 @@ MonoBehaviour:
   moveSpeed: 280
   ballSpeed: 20
   minBallSpeedForSwitch: 5
-  camShakeDuration: 0
+  camShakeDuration: 0.2
   camShakeMagnitude: 0
+  controllerVibrateMin: 0.25
+  controllerVibrateMax: 0.75
+  controllerVibrateTime: 0.4
   playerInput: {x: 0, y: 0}
   isBall: 0
 --- !u!50 &3751433371622799145
@@ -229,7 +233,7 @@ MonoBehaviour:
   isAlive: 1
   lightCount: 0
   audio: {fileID: 269222128268266042}
-  music: {fileID: 0}
+  music: {fileID: 4351212979010233222}
   sfx:
   - {fileID: 8300000, guid: 12cfe2e7007134b4db15457fa7bea14d, type: 3}
 --- !u!114 &6763597992136981028
@@ -445,6 +449,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2685484727812854867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3751433371622799147}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
 --- !u!1 &6413146232415254825
 GameObject:
   m_ObjectHideFlags: 0

@@ -47,4 +47,4 @@ MonoBehaviour:
   spawnAreaSize: {x: 18, y: 12}
   enemy: {fileID: 2671669261358282928, guid: 3a22c7910af57d340abe043c352b797c, type: 3}
   enemyCap: 8
-  spawnEveryXPoints: 2
+  spawnEveryXPoints: 3
