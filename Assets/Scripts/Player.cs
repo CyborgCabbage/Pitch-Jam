@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     public bool isAlive = true;
     public int lightCount = 0;
     [SerializeField] AudioSource audio;
+    [SerializeField] AudioSource music;
     [SerializeField] List<AudioClip> sfx;
 
     private void Start()
@@ -22,6 +23,10 @@ public class Player : MonoBehaviour
         if (PlayerPrefs.HasKey("sfxVolume"))
         {
             audio.volume = PlayerPrefs.GetFloat("sfxVolume") * audio.volume;
+        }
+        if (PlayerPrefs.HasKey("musicVolume"))
+        {
+            music.volume = PlayerPrefs.GetFloat("musicVolume") * music.volume;
         }
     }
 
