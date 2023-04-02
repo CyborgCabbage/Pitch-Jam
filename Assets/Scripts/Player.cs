@@ -21,6 +21,9 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+
+        health = maxHealth;
+        score = 0;
         if (PlayerPrefs.HasKey("sfxVolume"))
         {
             audio.volume = PlayerPrefs.GetFloat("sfxVolume") * audio.volume;

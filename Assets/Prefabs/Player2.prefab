@@ -71,9 +71,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingLayerID: -475481273
+  m_SortingLayer: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: -200346302, guid: de7a3d661a2c3d440b5ef6ec8874164a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!95 &3313793605637023753
 Animator:
   serializedVersion: 4
@@ -221,7 +221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0358a153c1ca0d64ca2000f71a306dac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  maxHealth: 5
   goals:
   - {fileID: 0}
   - {fileID: 0}
@@ -229,6 +229,7 @@ MonoBehaviour:
   isAlive: 1
   lightCount: 0
   audio: {fileID: 269222128268266042}
+  music: {fileID: 0}
   sfx:
   - {fileID: 8300000, guid: 12cfe2e7007134b4db15457fa7bea14d, type: 3}
 --- !u!114 &6763597992136981028
