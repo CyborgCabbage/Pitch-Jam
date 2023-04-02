@@ -7,6 +7,8 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] public Animator animator;
+    [SerializeField] AudioSource audio;
+    [SerializeField] List<AudioClip> sfx;
     public float time = 0;
     // Start is called before the first frame update
     void Start()
@@ -30,6 +32,7 @@ public class Enemy : MonoBehaviour
             PlayerMovement player = transform.GetChild(0).GetComponent<AIDetector>().Target.GetComponent<PlayerMovement>();
             if(time <= 0)
             {
+                audio.PlayOneShot(sfx[0]);
                 player.Roll(force, 50);
                 time = 1;
             }

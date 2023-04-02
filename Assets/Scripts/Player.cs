@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     float time = 1;
     public bool isAlive = true;
     public int lightCount = 0;
+    [SerializeField] AudioSource audio;
+    [SerializeField] List<AudioClip> sfx;
     public void Update()
     {
         if (lightCount == 0)
@@ -53,6 +55,7 @@ public class Player : MonoBehaviour
     public void IncrementGoals()
     {
         score++;
+        audio.PlayOneShot(sfx[0]);
         for (int i = 0; i < goals.Length; i++)
         {
            goals[i].SwapActiveGoals();
