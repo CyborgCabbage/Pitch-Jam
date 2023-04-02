@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7842765377016847554}
   - component: {fileID: 6209581447670632167}
   - component: {fileID: 8047921930059519105}
+  - component: {fileID: 4150137486734997964}
   m_Layer: 8
   m_Name: Circle Light
   m_TagString: CircleLight
@@ -624,3 +625,15 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
+--- !u!114 &4150137486734997964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7842765377016847552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b430e633832b4649b0be38be75d1e4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

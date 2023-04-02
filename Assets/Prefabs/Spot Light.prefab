@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3504951070789635028}
   - component: {fileID: 6323086486448026540}
   - component: {fileID: 4051591405274603923}
+  - component: {fileID: 5026879065718661968}
   m_Layer: 8
   m_Name: Spot Light
   m_TagString: Untagged
@@ -153,3 +154,15 @@ PolygonCollider2D:
   m_Points:
     m_Paths: []
   m_UseDelaunayMesh: 0
+--- !u!114 &5026879065718661968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8731318528163206257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b430e633832b4649b0be38be75d1e4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

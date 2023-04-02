@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -22,13 +23,20 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float camShakeDuration;
     [SerializeField] float camShakeMagnitude;
 
+    [SerializeField] float controllerVibrateMin;
+    [SerializeField] float controllerVibrateMax;
+    [SerializeField] float controllerVibrateTime;
+    float controllerVibrateTimer;
+
+    Gamepad gamepad;
+
     Vector2 ballTrajectory;
     public Vector2 playerInput;
     public bool isBall = false;
     // Start is called before the first frame update
     void Start()
     {
-        
+        gamepad = Gamepad.current;
     }
 
     // Update is called once per frame
@@ -41,15 +49,27 @@ public class PlayerMovement : MonoBehaviour
         //Check for roll button
         if (Input.GetButtonDown("Fire1")) //LMB
         {
+           
             //If they are running - turn into ball
             if (!isBall)
             {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    //Get player direction to mouse direction for trajectory
+                    Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+                    Vector2 diff = new Vector2(mousePos.x - transform.position.x, mousePos.y - transform.position.y);
+                    diff.Normalize();
+                    ballTrajectory = diff;
 
-                //Get player direction to mouse direction for trajectory
-                Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-                Vector2 diff = new Vector2(mousePos.x - transform.position.x, mousePos.y - transform.position.y);
-                diff.Normalize();
-                ballTrajectory = diff;
+                    
+                }
+                else
+                {
+                    Vector2 diff = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+                  //  Vector2 diff = rb.velocity;
+                    diff.Normalize();
+                    ballTrajectory = diff;
+                }
 
                 Roll(ballTrajectory, ballSpeed);
             }
@@ -84,6 +104,11 @@ public class PlayerMovement : MonoBehaviour
         player.SetGoals(true);
         rollParticles.Play();
         StartCoroutine(cam.GetComponent<FollowCam>().Shake(camShakeDuration, force * 0.008f));
+        controllerVibrateTimer = controllerVibrateTime;
+        Gamepad.current.SetMotorSpeeds(controllerVibrateMin, controllerVibrateMax); //0.25f, 0.75f
+        InputSystem.ResumeHaptics();
+        StartCoroutine(VibrateController());
+        
 
         //Make player bounce off bounds
         rb.sharedMaterial = bounceMaterial;
@@ -93,6 +118,18 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = new Vector2(trajectory.x * force, trajectory.y * force);
 
         isBall = true;
+    }
+
+    IEnumerator VibrateController()
+    {
+        while (controllerVibrateTimer > 0)
+        {
+            Debug.Log(controllerVibrateTimer);
+           // Gamepad.current.SetMotorSpeeds(controllerVibrateMin, controllerVibrateMax); //0.25f, 0.75f
+            controllerVibrateTimer -= Time.deltaTime;
+            yield return null;
+        }
+        InputSystem.PauseHaptics();
     }
 
     public Vector3 GetVelocity()
