@@ -45875,17 +45875,9 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 1295130420}
-    - target: {fileID: 3751433371622799144, guid: 0b0d065ec257a8246ad2159b0a50a723, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 952657485}
     - target: {fileID: 3751433371622799147, guid: 0b0d065ec257a8246ad2159b0a50a723, type: 3}
       propertyPath: m_Name
       value: Player2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3751433371622799149, guid: 0b0d065ec257a8246ad2159b0a50a723, type: 3}
-      propertyPath: health
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3751433371622799149, guid: 0b0d065ec257a8246ad2159b0a50a723, type: 3}
       propertyPath: goals.Array.data[0]

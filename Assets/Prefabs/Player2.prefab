@@ -143,7 +143,7 @@ Transform:
   - {fileID: 4802817313056224849}
   - {fileID: 1880177807871429054}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3751433371622799144
 MonoBehaviour:
@@ -191,7 +191,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!58 &3751433371622799146
 CircleCollider2D:
@@ -229,9 +229,11 @@ MonoBehaviour:
   isAlive: 1
   lightCount: 0
   audio: {fileID: 269222128268266042}
-  music: {fileID: 0}
+  music: {fileID: 4351212979010233222}
   sfx:
   - {fileID: 8300000, guid: 12cfe2e7007134b4db15457fa7bea14d, type: 3}
+  - {fileID: 8300000, guid: be20b8e6b8353f2418fec996c999b626, type: 3}
+  - {fileID: 8300000, guid: 01156c2594e3f6b44a5e2172569f3577, type: 3}
 --- !u!114 &6763597992136981028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,7 +361,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: be20b8e6b8353f2418fec996c999b626, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.526
   m_Pitch: 1

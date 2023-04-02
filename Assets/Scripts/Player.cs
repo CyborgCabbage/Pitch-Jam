@@ -32,6 +32,16 @@ public class Player : MonoBehaviour
         {
             music.volume = PlayerPrefs.GetFloat("musicVolume") * music.volume;
         }
+        if(PlayerPrefs.GetInt("disco") == 0)
+        {
+            music.clip = sfx[1];
+            music.Play();
+        }
+        if(PlayerPrefs.GetInt("disco") == 1)
+        {
+            music.clip=sfx[2];
+            music.Play();
+        }
     }
 
     public float GetHealthFraction() {
