@@ -6,6 +6,11 @@ using UnityEngine.UI;
 public class SettingsManager : MonoBehaviour
 {
     [SerializeField] Toggle camShakeToggle;
+    [SerializeField] Slider sfxSlider;
+    [SerializeField] Slider musicSlider;
+
+    [SerializeField] float defaultSFXVolume;
+    [SerializeField] float defaultMusicVolume;
 
     private void Start()
     {
@@ -13,6 +18,19 @@ public class SettingsManager : MonoBehaviour
         {
             camShakeToggle.isOn = false;
         }
+        if (!PlayerPrefs.HasKey("sfxVolume")) 
+        {
+            //Set default
+            PlayerPrefs.SetFloat("sfxVolume", defaultSFXVolume);
+        }
+        sfxSlider.value = PlayerPrefs.GetFloat("sfxVolume");
+
+        if (!PlayerPrefs.HasKey("musicVolume"))
+        {
+            //Set default
+            PlayerPrefs.SetFloat("musicVolume", defaultMusicVolume);
+        }
+        musicSlider.value = PlayerPrefs.GetFloat("musicVolume");
     }
 
     public void ToggleCamShake()
@@ -26,5 +44,15 @@ public class SettingsManager : MonoBehaviour
             PlayerPrefs.SetInt("camShake", 0);
         }
         PlayerPrefs.Save();
+    }
+
+    public void ChangeSFXVolume()
+    {
+        PlayerPrefs.SetFloat("sfxVolume", sfxSlider.value);
+    }
+
+    public void ChangeMusicVolume()
+    {
+        PlayerPrefs.SetFloat("musicVolume", musicSlider.value);
     }
 }
