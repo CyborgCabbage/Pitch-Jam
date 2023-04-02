@@ -6,6 +6,7 @@ public class Goal : MonoBehaviour
 {
     [SerializeField] bool isScorable;
     BoxCollider2D box;
+    [SerializeField] ParticleSystem scoreParticles;
     private void Start()
     {
         box = GetComponent<BoxCollider2D>();
@@ -20,6 +21,8 @@ public class Goal : MonoBehaviour
         Player player = collision.GetComponent<Player>();
         if (!player) { return; }
 
+
+        scoreParticles.Play();
         player.IncrementGoals();
 
     }
