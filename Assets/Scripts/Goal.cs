@@ -36,6 +36,19 @@ public class Goal : MonoBehaviour
 
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (!isScorable) { return; }
+
+        //Check if collision is player
+        Player player = collision.GetComponent<Player>();
+        if (!player) { return; }
+
+
+        scoreParticles.Play();
+        player.IncrementGoals();
+    }
+
     private void SetGoalSprite()
     {
         if (isScorable)

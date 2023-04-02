@@ -15870,6 +15870,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pitch
       objectReference: {fileID: 0}
+    - target: {fileID: 3710799778135607148, guid: b23d2b2a81f3f9746a4b497886e0b9ae, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3710799778135607155, guid: b23d2b2a81f3f9746a4b497886e0b9ae, type: 3}
       propertyPath: m_RootOrder
       value: 13
