@@ -6,7 +6,8 @@ using UnityEngine.Rendering.Universal;
 public class Player : MonoBehaviour
 {
     public static int score;
-    [SerializeField]float health;
+    [SerializeField]float maxHealth = 5;
+    float health;
     [SerializeField] Goal[] goals;
     int targetGoal;
     float radius = 1;
@@ -30,6 +31,10 @@ public class Player : MonoBehaviour
         }
     }
 
+    public float GetHealthFraction() {
+        return Mathf.Clamp01(health / maxHealth);
+    }
+
     public void Update()
     {
         if (lightCount == 0)
@@ -37,7 +42,7 @@ public class Player : MonoBehaviour
             DecreaseHealth(damage * Time.deltaTime);
         }
 
-        if(lightCount > 0 && health < 5)
+        if(lightCount > 0 && health < maxHealth)
         {
             IncreaseHealth(damage * Time.deltaTime);
         }

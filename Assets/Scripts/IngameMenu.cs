@@ -105,16 +105,9 @@ public class IngameMenu : MonoBehaviour
         }
         if (!isPaused && player.isAlive) {
             Image image = deathMenu.GetComponent<Image>();
-            float a = image.color.a;
+            float a = 1-player.GetHealthFraction();
             deathMenu.SetActive(a != 0);
-            if (player.lightCount == 0)
-            {
-                a += Time.deltaTime * 0.25f;
-            }
-            else {
-                a -= Time.deltaTime * 0.25f;
-            }
-            image.color = new Color(image.color.r, image.color.g, image.color.b, Mathf.Clamp01(a));
+            image.color = new Color(image.color.r, image.color.g, image.color.b, a);
         }
         if (!player.isAlive)
         {
