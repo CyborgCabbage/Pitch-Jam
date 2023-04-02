@@ -13,7 +13,10 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (PlayerPrefs.HasKey("sfxVolume"))
+        {
+            audio.volume = PlayerPrefs.GetFloat("sfxVolume");
+        }
     }
 
     // Update is called once per frame
