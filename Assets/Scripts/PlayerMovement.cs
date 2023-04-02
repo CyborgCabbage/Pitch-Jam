@@ -71,7 +71,10 @@ public class PlayerMovement : MonoBehaviour
                     ballTrajectory = diff;
                 }
 
-                Roll(ballTrajectory, ballSpeed);
+                if (ballTrajectory != Vector2.zero)
+                {
+                    Roll(ballTrajectory, ballSpeed);
+                } 
             }
         }
 
@@ -104,10 +107,14 @@ public class PlayerMovement : MonoBehaviour
         player.SetGoals(true);
         rollParticles.Play();
         StartCoroutine(cam.GetComponent<FollowCam>().Shake(camShakeDuration, force * 0.008f));
-        controllerVibrateTimer = controllerVibrateTime;
-        Gamepad.current.SetMotorSpeeds(controllerVibrateMin, controllerVibrateMax); //0.25f, 0.75f
-        InputSystem.ResumeHaptics();
-        StartCoroutine(VibrateController());
+        if (Gamepad.current != null)
+        {
+            controllerVibrateTimer = controllerVibrateTime;
+            Gamepad.current.SetMotorSpeeds(controllerVibrateMin, controllerVibrateMax); //0.25f, 0.75f
+            InputSystem.ResumeHaptics();
+            StartCoroutine(VibrateController());
+        }
+       
         
 
         //Make player bounce off bounds
