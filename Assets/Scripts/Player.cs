@@ -16,6 +16,15 @@ public class Player : MonoBehaviour
     public int lightCount = 0;
     [SerializeField] AudioSource audio;
     [SerializeField] List<AudioClip> sfx;
+
+    private void Start()
+    {
+        if (PlayerPrefs.HasKey("sfxVolume"))
+        {
+            audio.volume = PlayerPrefs.GetFloat("sfxVolume") * audio.volume;
+        }
+    }
+
     public void Update()
     {
         if (lightCount == 0)

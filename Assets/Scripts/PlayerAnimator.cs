@@ -19,7 +19,7 @@ public class PlayerAnimator : MonoBehaviour
     {
         if (PlayerPrefs.HasKey("sfxVolume"))
         {
-            audioScr.volume = PlayerPrefs.GetFloat("sfxVolume");
+            audioScr.volume = PlayerPrefs.GetFloat("sfxVolume") * audioScr.volume;
         }
         referenceScale = transform.localScale.x;
     }

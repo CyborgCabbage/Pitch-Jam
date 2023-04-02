@@ -9,13 +9,15 @@ public class Enemy : MonoBehaviour
     [SerializeField] public Animator animator;
     [SerializeField] AudioSource audio;
     [SerializeField] List<AudioClip> sfx;
+    [SerializeField] AudioSource audio2;
     public float time = 0;
     // Start is called before the first frame update
     void Start()
     {
         if (PlayerPrefs.HasKey("sfxVolume"))
         {
-            audio.volume = PlayerPrefs.GetFloat("sfxVolume");
+            audio.volume = PlayerPrefs.GetFloat("sfxVolume") * audio.volume;
+            audio2.volume = PlayerPrefs.GetFloat("sfxVolume") * audio.volume;
         }
     }
 

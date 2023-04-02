@@ -93,7 +93,7 @@ Transform:
   - {fileID: 2671669261566533660}
   - {fileID: 4268117114547088898}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2671669261358282930
 SpriteRenderer:
@@ -163,6 +163,7 @@ MonoBehaviour:
   audio: {fileID: 2019705355}
   sfx:
   - {fileID: 8300000, guid: 3f7c89fc88a01344591f9c38d750a1aa, type: 3}
+  audio2: {fileID: 5172708875963387690}
   time: 0
 --- !u!70 &5963918919995300337
 CapsuleCollider2D:
