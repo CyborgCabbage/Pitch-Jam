@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
 
         if(health <= 0)
         {
+            health = 0;
             isAlive = false;
         }
 
@@ -66,7 +67,10 @@ public class Player : MonoBehaviour
     {
         if (time <= 0)
         {
-            health -= decrease;
+            float multiplier = 1 + (Player.score / 10f);
+            multiplier = Mathf.Clamp(multiplier, 1, 5);
+
+            health -= decrease * multiplier;
         }
     }
 
