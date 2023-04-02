@@ -13859,6 +13859,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 238225470723984158, guid: 013cd3546f0fa76449cd625d25ab6a64, type: 3}
+      propertyPath: removeEveryXPoints
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 238225470723984158, guid: 013cd3546f0fa76449cd625d25ab6a64, type: 3}
       propertyPath: removeableLights.Array.size
       value: 12
       objectReference: {fileID: 0}
@@ -14083,6 +14087,10 @@ PrefabInstance:
     - target: {fileID: 1820053636103014809, guid: 4dceae35d0146c3409b50b7091871930, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1820053636103014810, guid: 4dceae35d0146c3409b50b7091871930, type: 3}
+      propertyPath: spawnEveryXPoints
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1820053636103014811, guid: 4dceae35d0146c3409b50b7091871930, type: 3}
       propertyPath: m_Name
