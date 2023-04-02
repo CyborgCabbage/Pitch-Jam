@@ -16,7 +16,7 @@ public class UiController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player.inLight)
+        if (player.lightCount > 0)
         {
             StartCoroutine(FadeBlackOutSquare(.25f, false));
         }
@@ -24,7 +24,6 @@ public class UiController : MonoBehaviour
         {
             StartCoroutine(FadeBlackOutSquare(.25f));
         }
-        Debug.Log(player.inLight);
         StopAllCoroutines();
     }
 

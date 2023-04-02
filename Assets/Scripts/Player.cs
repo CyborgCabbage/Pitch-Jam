@@ -9,21 +9,19 @@ public class Player : MonoBehaviour
     [SerializeField]float health;
     [SerializeField] Goal[] goals;
     int targetGoal;
-    public bool inLight = true;
     float radius = 1;
     [SerializeField]float damage = 1;
     float time = 1;
     public bool isAlive = true;
-
+    public int lightCount = 0;
     public void Update()
     {
-        inLight = IsInLight();
-        if (!inLight)
+        if (lightCount == 0)
         {
             DecreaseHealth(damage * Time.deltaTime);
         }
 
-        if(inLight && health < 5)
+        if(lightCount > 0 && health < 5)
         {
             IncreaseHealth(damage * Time.deltaTime);
         }
@@ -72,21 +70,5 @@ public class Player : MonoBehaviour
     public void IncreaseHealth(float increase)
     {
         health += increase;
-    }
-
-    private bool IsInLight()
-    {
-        GameObject[] objects = GameObject.FindGameObjectsWithTag("CircleLight");
-        foreach (GameObject o in objects)
-        {
-            Light2D light2d = o.GetComponent<Light2D>();
-            float distance = (transform.position - o.transform.position).magnitude;
-            float strength = light2d.shapeLightFalloffSize + radius;
-            if (distance < strength)
-            {
-                return true;
-            }
-        }
-        return false;
     }
 }

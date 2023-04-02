@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7842765377016847553}
   - component: {fileID: 7842765377016847554}
-  - component: {fileID: 1153784639846151516}
-  m_Layer: 0
+  - component: {fileID: 6209581447670632167}
+  - component: {fileID: 8047921930059519105}
+  m_Layer: 8
   m_Name: Circle Light
   m_TagString: CircleLight
   m_Icon: {fileID: 0}
@@ -593,7 +594,7 @@ MonoBehaviour:
   - {x: 0.4157348, y: -0.27778515, z: 0}
   - {x: 0.46193978, y: -0.19134171, z: 0}
   - {x: 0.49039266, y: -0.09754512, z: 0}
---- !u!114 &1153784639846151516
+--- !u!114 &6209581447670632167
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -607,3 +608,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   oscillationDimensions: {x: 0, y: 0}
   oscillationFrequencies: {x: 0, y: 0}
+--- !u!58 &8047921930059519105
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7842765377016847552}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.1

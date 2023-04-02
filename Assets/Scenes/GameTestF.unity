@@ -317,6 +317,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Circle Light
       objectReference: {fileID: 0}
+    - target: {fileID: 7842765377016847552, guid: 330e9941f5ab3fb4bb8604c5f9917248, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7842765377016847553, guid: 330e9941f5ab3fb4bb8604c5f9917248, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -7355,6 +7359,7 @@ MonoBehaviour:
   player: {fileID: 952657488}
   distanceFromPlayerMultiplier: 0.8
   focusPlayer: 0
+  cameraShake: 1
 --- !u!114 &1295130423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7581,3 +7586,70 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 8daa17e4667196240ab7738f35211460, type: 3}
+--- !u!1001 &7263889273454997921
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 436589228539223864, guid: c5589ef077543e944b2a45351255e897, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 436589228539223864, guid: c5589ef077543e944b2a45351255e897, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 436589228539223864, guid: c5589ef077543e944b2a45351255e897, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 436589228539223864, guid: c5589ef077543e944b2a45351255e897, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 436589228539223864, guid: c5589ef077543e944b2a45351255e897, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7723336
+      objectReference: {fileID: 0}
+    - target: {fileID: 436589228539223864, guid: c5589ef077543e944b2a45351255e897, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 436589228539223864, guid: c5589ef077543e944b2a45351255e897, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 436589228539223864, guid: c5589ef077543e944b2a45351255e897, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.63521713
+      objectReference: {fileID: 0}
+    - target: {fileID: 436589228539223864, guid: c5589ef077543e944b2a45351255e897, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 436589228539223864, guid: c5589ef077543e944b2a45351255e897, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 436589228539223864, guid: c5589ef077543e944b2a45351255e897, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -78.872
+      objectReference: {fileID: 0}
+    - target: {fileID: 6323086486448026540, guid: c5589ef077543e944b2a45351255e897, type: 3}
+      propertyPath: sweepTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6323086486448026540, guid: c5589ef077543e944b2a45351255e897, type: 3}
+      propertyPath: sweepAngle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8731318528163206257, guid: c5589ef077543e944b2a45351255e897, type: 3}
+      propertyPath: m_Name
+      value: Spot Light
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: c5589ef077543e944b2a45351255e897, type: 3}
