@@ -24,7 +24,7 @@ public class SpawnManager : MonoBehaviour
         {
             enemyCount++;
             GameObject gm = Instantiate(enemy);
-            gm.transform.position = new Vector2(Random.Range(-spawnAreaSize.x, spawnAreaSize.x), Random.Range(-spawnAreaSize.y, spawnAreaSize.y)) / 2;
+            gm.transform.position = new Vector2(Random.Range(-spawnAreaSize.x + 0f, spawnAreaSize.x), Random.Range(-spawnAreaSize.y + 0f, spawnAreaSize.y)) / 2;
         }
     }
 
