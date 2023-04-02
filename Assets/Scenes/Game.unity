@@ -523,7 +523,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 2
-    m_TransformParent: {fileID: 1791744269}
+    m_TransformParent: {fileID: 1731909971}
     m_Modifications:
     - target: {fileID: 6209581447670632167, guid: 330e9941f5ab3fb4bb8604c5f9917248, type: 3}
       propertyPath: oscillationDimensions.x
@@ -19733,6 +19733,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goal (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4045000778336442165, guid: 4601a975dbca45f468a46d40e29af6b0, type: 3}
+      propertyPath: isScorable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5873582279165556973, guid: 4601a975dbca45f468a46d40e29af6b0, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -19758,7 +19762,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 2
-    m_TransformParent: {fileID: 1791744269}
+    m_TransformParent: {fileID: 1731909971}
     m_Modifications:
     - target: {fileID: 6209581447670632167, guid: 330e9941f5ab3fb4bb8604c5f9917248, type: 3}
       propertyPath: oscillationDimensions.x
@@ -26100,7 +26104,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 2
-    m_TransformParent: {fileID: 1791744269}
+    m_TransformParent: {fileID: 1731909971}
     m_Modifications:
     - target: {fileID: 6209581447670632167, guid: 330e9941f5ab3fb4bb8604c5f9917248, type: 3}
       propertyPath: oscillationDimensions.x
@@ -38758,7 +38762,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 2
-    m_TransformParent: {fileID: 1791744269}
+    m_TransformParent: {fileID: 1731909971}
     m_Modifications:
     - target: {fileID: 6209581447670632167, guid: 330e9941f5ab3fb4bb8604c5f9917248, type: 3}
       propertyPath: oscillationDimensions.x
@@ -45324,6 +45328,7 @@ GameObject:
   m_Component:
   - component: {fileID: 964604866}
   - component: {fileID: 964604867}
+  - component: {fileID: 964604868}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -45398,6 +45403,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &964604868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964604865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab9240ed94cf57d42bb1f66cbc6ee935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  discoSprite: {fileID: 21300000, guid: ea6411375fc007943bebe9228ba961c8, type: 3}
 --- !u!1 &991534286
 GameObject:
   m_ObjectHideFlags: 0
@@ -45496,7 +45514,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4045000778336442165, guid: 4601a975dbca45f468a46d40e29af6b0, type: 3}
       propertyPath: isScorable
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5873582279165556973, guid: 4601a975dbca45f468a46d40e29af6b0, type: 3}
       propertyPath: m_LocalScale.x
@@ -45650,6 +45668,9 @@ MonoBehaviour:
   minBallSpeedForSwitch: 0
   camShakeDuration: 0
   camShakeMagnitude: 0
+  controllerVibrateMin: 0
+  controllerVibrateMax: 0
+  controllerVibrateTime: 0
   playerInput: {x: 0, y: 0}
   isBall: 0
 --- !u!58 &1015196663
@@ -46214,7 +46235,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 2
-    m_TransformParent: {fileID: 1791744269}
+    m_TransformParent: {fileID: 1731909971}
     m_Modifications:
     - target: {fileID: 6209581447670632167, guid: 330e9941f5ab3fb4bb8604c5f9917248, type: 3}
       propertyPath: oscillationDimensions.x
@@ -52481,7 +52502,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 2
-    m_TransformParent: {fileID: 1791744269}
+    m_TransformParent: {fileID: 1731909971}
     m_Modifications:
     - target: {fileID: 6209581447670632167, guid: 330e9941f5ab3fb4bb8604c5f9917248, type: 3}
       propertyPath: oscillationDimensions.x
@@ -59294,7 +59315,14 @@ Transform:
   - {fileID: 2067189416}
   - {fileID: 666075009}
   - {fileID: 991534287}
-  - {fileID: 1791744269}
+  - {fileID: 678171448}
+  - {fileID: 179286090}
+  - {fileID: 1421078903}
+  - {fileID: 1823853085}
+  - {fileID: 1392382969}
+  - {fileID: 579836337}
+  - {fileID: 1912158437}
+  - {fileID: 813813406}
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -65617,52 +65645,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 330e9941f5ab3fb4bb8604c5f9917248, type: 3}
---- !u!1 &1791744268
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1791744269}
-  m_Layer: 0
-  m_Name: aaaaaaaaaaaaaaaaa
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1791744269
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1791744268}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 678171448}
-  - {fileID: 179286090}
-  - {fileID: 1421078903}
-  - {fileID: 1823853085}
-  - {fileID: 1392382969}
-  - {fileID: 579836337}
-  - {fileID: 1912158437}
-  - {fileID: 813813406}
-  m_Father: {fileID: 1731909971}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1823853084
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 2
-    m_TransformParent: {fileID: 1791744269}
+    m_TransformParent: {fileID: 1731909971}
     m_Modifications:
     - target: {fileID: 6209581447670632167, guid: 330e9941f5ab3fb4bb8604c5f9917248, type: 3}
       propertyPath: oscillationDimensions.x
@@ -71997,7 +71986,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 2
-    m_TransformParent: {fileID: 1791744269}
+    m_TransformParent: {fileID: 1731909971}
     m_Modifications:
     - target: {fileID: 6209581447670632167, guid: 330e9941f5ab3fb4bb8604c5f9917248, type: 3}
       propertyPath: oscillationDimensions.x
