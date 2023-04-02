@@ -10,6 +10,17 @@ public class FollowCam : MonoBehaviour
     [SerializeField] bool focusPlayer = false;
     [SerializeField] bool cameraShake = true;
 
+    private void Start()
+    {
+        if (PlayerPrefs.HasKey("camShake"))
+        {
+            if (PlayerPrefs.GetInt("camShake") == 0)
+            {
+                cameraShake = false;
+            }
+        }
+    }
+
     private void FixedUpdate()
     {
         //If player isnt moving + focus setting is off - dont move to player, stay in position
